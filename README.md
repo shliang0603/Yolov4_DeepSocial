@@ -20,13 +20,13 @@
 
 ### 1.2 编译darknet
 
-1、先进入编译目录
+#### 1、先进入编译目录
 
 ```python
 cd DeepSocial/darknet
 ```
 
-2、根据自己是否有GPU修改`Makefile文件`
+#### 2、根据自己是否有GPU修改`Makefile文件`
 
 >`vim Makefile`
 
@@ -44,8 +44,11 @@ ZED_CAMERA=0
 ZED_CAMERA_v2_8=0
 ```
 
-3、开始编译
+#### 3、开始编译
 
+因为是我在自己本地是编译过得，因重新编译之前，先执行一下`sudo make clean`，删除之前编译生成的文件！
+
+>`sudo make clean`
 >`sudo make`
 
 
@@ -75,7 +78,7 @@ ZED_CAMERA_v2_8=0
 
 
 
-4、验证环境
+#### 4、验证环境
 
 验证环境有两种方式：
 
@@ -102,7 +105,7 @@ ZED_CAMERA_v2_8=0
 ## 2 程序运行
 
 
-1、下载测试视频，测试视频放到`DeepSocial/Images`目录下
+#### 1、下载测试视频，测试视频放到`DeepSocial/Images`目录下
 
 - [OxfordTownCentreDataset.avi视频下载地址](https://pan.baidu.com/s/1lEKxwrbbu17QPmPLNYDP3Q)：提取码`3v10`
 
@@ -113,13 +116,13 @@ ZED_CAMERA_v2_8=0
 用到的测试数据是`牛津市中心（Oxford Town Center）`采集的一段视频，`5分钟的长度`
 
 
-2、下载预训练的模型，下载模型放到`weights`目录下
+#### 2、下载预训练的模型，下载模型放到`weights`目录下
 
 - [预训练模型DeepSocial.weights的下载地址](https://pan.baidu.com/s/1CyS0fcqkTWsqSA2l6hr8FA)：提取码`m4k9`
 
 
 
-3、运行测试程序
+#### 3、运行测试程序
 
 >`python Yolov4_DeepSocial.py`
 
@@ -129,8 +132,13 @@ ZED_CAMERA_v2_8=0
 测试效果如下：
 
 
-<img src = "Images/SocialD-Violations.jpg" width=410> 
-<img src = "Images/Crowdloop.gif" width=410>
+输出gif动图：
+
+>`ffmpeg -i OxfordTownCentreDataset.avi -ss 00:00:05.0 -t 00:00:15.0 -s 800*450 -r 15 OxfordTownCentreDataset.gif`
+
+<img src = "Images/DeepSOCIAL_Crowd_Map.gif" width=410> 
+<img src = "Images/DeepSOCIAL_DTC.gif" width=410>
+<img src = "Images/DeepSOCIAL_Social_Distancing.gif " width=410>
 
 
 
